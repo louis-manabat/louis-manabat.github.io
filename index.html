@@ -111,7 +111,7 @@
                             <p id="relevantCoursework">Relevant Coursework</p>
                             <p id="courseworkUnit">- Unix Systems Administration and Programming (Linux)</p>
                             <p id="result">Final grade: Distinction</p>
-                            <p id="courseworkUnit">- System Deployment and Operations</p>
+                            <p id="courseworkUnit">- System Deployment and Operations (SDO)</p>
                             <p id="result">Final grade: High Distinction</p>
                             <p id="note">Please note: Refer to the <a href="#projects">projects</a> section for all
                                 assignments related to this class.</p>
@@ -139,10 +139,11 @@
                     <h2 class="display-5">Projects</h2>
                     <div class="row text-left">
                         <div class="col-md-6 col-lg-6">
-                            <h4>Using CircleCI</h4>
+                            <h4>Using CircleCI (SDO A1)</h4>
                             <p><a href="https://github.com/louis-manabat/CICD-CircleCI">Repository</a></p>
                             <p id="result">Grade: 77.5/100</p>
-                            <p>Objective of assignment:<br>The assignment aims to understand the CICD methodology by
+                            <p>Objective of assignment:<br>The assignment aims to understand the Continuous
+                                Integration/Continuous Deployment (CICD) methodology by
                                 focusing on the CI process. This is achieved by using CircleCI to run a CI pipeline to
                                 automate the pre-deployment process.</p>
                             <p>What was implemented:</p>
@@ -158,9 +159,71 @@
                                     </li>
                                 </ul>
                             </ul>
+                            <p>What was learnt:<br>I started to gain an understanding of the Continuous Integration
+                                process, and how it simplifies testing and deployment of solution via automating it
+                                through CircleCI. This helps in a way that it lowers manual workload, and prevents human
+                                errors such as forgetting to run a security test for example.</p>
                         </div>
                         <div class="col-md-6 col-lg-6">
-
+                            <h4>Using Ansible and Terraform (SDO A2)</h4>
+                            <p><a href="https://github.com/louis-manabat/CICD-Ansible_and_Terraform">Repository</a></p>
+                            <p id="result">Grade: 78/100</p>
+                            <p>Objective of assignment:<br>The assignment aims to fully implement the CICD lifecycle by
+                                adding a CD process to the application. This is achieved by deploying an infrastructure
+                                via Terraform on AWS, and the solution is deployed onto the EC2 instance by using
+                                Ansible. Makefile commands are used here to semi-automate the process, but can be fully
+                                automated by implementing a CircleCI pipeline.</p>
+                            <p>What was implemented:</p>
+                            <ul>
+                                <li>Terraform</li>
+                                <ul>
+                                    <li>Create a VPC with 3 layers, across 3 availability zones (Public, Private and
+                                        Data)</li>
+                                    <li>Create a 3 layer application infrastructure (With appropriate security groups
+                                        applied to them)</li>
+                                    <ul>
+                                        <li>Create a Load Balancer using the Public layer</li>
+                                        <li>Create a EC2 instance using the Private layer using the Amazon Linux image
+                                        </li>
+                                        <ul>
+                                            <li>The latest version was used by statically assigning it an image ID</li>
+                                            <li>Further implementation made it so it dynamically pulls the latest image
+                                                ID, and uses that for the EC2 instance</li>
+                                        </ul>
+                                        <li>Create a Database with DocumentDB using the Data layer</li>
+                                    </ul>
+                                    <li>Create appropriate variable outputs that a shellscript can run later on</li>
+                                </ul>
+                                <li>Ansible</li>
+                                <ul>
+                                    <li>Shellscript file</li>
+                                    <ul>
+                                        <li>
+                                            Create an inventory.yml file that echoes the public ip of the EC2 instance
+                                            to so that Ansible can SSH into it
+                                        </li>
+                                        <li>Run the Ansible-playbook command while parsing multiple terraform output variables (as env variables) that playbook.yml will use</li>
+                                    </ul>
+                                    <li>Playbook and Service file</li>
+                                    <ul>
+                                        <li>Create a service.tpl file</li>
+                                        <ul>
+                                            <li>It contains a Unit and Service section directive</li>
+                                            <li>It will direct SystemD to where the solution is located in the EC2 instance</li>
+                                            <ul>
+                                                <li>It will also automatically start the service if the instance were to reboot</li>
+                                            </ul>
+                                            <li>The Database URL is dynamically created using the env variables via templating</li>
+                                        </ul>
+                                        <li>Create a playbook.yml file</li>
+                                        <ul>
+                                            <li>Copy solution from local to remote directory</li>
+                                            <li>Update OS and install packages to install the solutions dependencies</li>
+                                            <li>Create the service file with the tpl file and start the service</li>
+                                        </ul>
+                                    </ul>
+                                </ul>
+                            </ul>
                         </div>
                     </div>
                 </div>
