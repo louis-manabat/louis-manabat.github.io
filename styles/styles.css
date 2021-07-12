@@ -24,4 +24,9 @@ p {
 
 #finalGrade {
     color: #000000be;
-}   
+}  
+
+#note {
+    font-size: 14px;
+    color: #0000009d;
+}
