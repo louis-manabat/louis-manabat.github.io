@@ -281,14 +281,45 @@
                             <button data-toggle="collapse" data-target="#a3">Implemented</button>
                             <div id="a3" class="collapse">
                                 <ul>
-                                    <li>Terraform</li>
+                                    <li>Helm Chart</li>
                                     <ul>
-                                        <li></li>
+                                        <li>Created a deployment file with dynamic values</li>
+                                        <ul>
+                                            <li>CircleCI passes the values through</li>
+                                        </ul>
+                                        <li>Created a service file which creates the load balancer</li>
+                                    </ul>
+                                    <li>Makefile</li>
+                                    <ul>
+                                        <li>Several commands that will install dependencies</li>
+                                        <ul>
+                                            <li>AWS</li>
+                                            <li>Helm</li>
+                                            <li>KOPS</li>
+                                            <li>KubeCTL</li>
+                                            <li>Terraform</li>
+                                        </ul>
+                                        <li>Command that integrates AWS Cloudwatch logging (commands and examples in
+                                            README)</li>
+                                    </ul>
+                                    <li>CircleCI</li>
+                                    <ul>
+                                        <li>Package the application</li>
+                                        <li>Deployed the application in a test and prod environment</li>
+                                        <li>Running a smoke test after each deployment</li>
+                                        <li>Ran end-to-end testing on the test environment</li>
                                     </ul>
                                 </ul>
                             </div>
                             <br><br>
-                            <p>What was learnt:<br></p>
+                            <p>What was learnt:<br>I was able further gain an understanding on how to deploy solutions
+                                in various ways. I found this </p>
+                            <!-- <p>What was learnt:<br>I was able to get a better grasp on DevOps automation, and how it
+                                helps deploy and run solutions sooner. I also learnt that what I had begun implementing
+                                was just scratching the surface, and that there will be different approaches to
+                                deploying the solution. On a personal note, I did wish that I had more time to give the
+                                HD task a shot, as that would have meant the solution deployment was fully automated.
+                                But I really did enjoy Ansible as an application deployment tool.</p> -->
                         </div>
                     </div>
                 </div>
