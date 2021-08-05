@@ -29,3 +29,11 @@ p {
 ul {
     font-family: Merriweather;
 }
+
+h1 {
+    padding-top: 2%;
+}
+
+h2 {
+    padding-top: 4%;
+}
