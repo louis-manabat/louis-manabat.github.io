@@ -1,0 +1,27 @@
+name: Portfolio CI
+
+on:
+  push:
+    branches:
+      - react
+
+jobs:
+  build:
+    name: Build app
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: https://louis-manabat.github.io
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+    
+      - name: Install Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: lts/fermium
+      
+      - name: Install npm packages
+        run: npm ci
