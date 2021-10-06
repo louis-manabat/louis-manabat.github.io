@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     environment:
-      name: github-pages
+      name: ghp-react-deploy
       url: https://louis-manabat.github.io
     
     steps:
@@ -21,7 +21,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: lts/fermium
+          node-version: 'lts/fermium'
       
       - name: Install npm packages
         run: npm ci
